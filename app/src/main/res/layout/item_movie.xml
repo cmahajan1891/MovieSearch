@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.moviesearch.utils.common.TransformType" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="movieItem"
+            type="com.example.moviesearch.data.model.MovieMetaInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/a11y_movie_item_image"
+            app:imageFromUrl="@{movieItem.poster}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeHolder="@{@drawable/ic_placeholder_icon}"
+            app:transform="@{TransformType.FIT_CENTER}" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{movieItem.title}"
+            app:layout_constraintBottom_toTopOf="@id/year"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/poster"
+            app:layout_constraintTop_toTopOf="@id/poster"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Avatar" />
+
+        <TextView
+            android:id="@+id/year"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="@{movieItem.year}"
+            app:layout_constraintBottom_toTopOf="@id/favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/poster"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="2021" />
+
+        <ImageView
+            android:id="@+id/favorite"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="2dp"
+            android:contentDescription="@string/favorites"
+            android:scaleType="center"
+            android:src="@{movieItem.getFavDrawable(context)}"
+            app:layout_constraintBottom_toBottomOf="@id/poster"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/poster"
+            app:layout_constraintTop_toBottomOf="@id/year"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

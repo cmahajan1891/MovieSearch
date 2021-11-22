@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MovieSearch</string>
+    <string name="main_page_label">Search Movies</string>
+    <string name="movies">Movies</string>
+    <string name="year">Year:</string>
+    <string name="network_connection_error">Internet connection lost, please retry again</string>
+    <string name="too_many_results">Too Many Results</string>
+    <string name="movie_not_found">Movie not found!</string>
+    <string name="problem_getting_details">Movie details not available!</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="a11y_movie_item_image">Movie poster</string>
+    <string name="favorites">Favorite Movies</string>
+    <string name="director">Director</string>
+</resources>

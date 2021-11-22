@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/main_page">
+
+    <fragment
+        android:id="@+id/main_page"
+        android:name="com.example.moviesearch.ui.search.SearchFragment"
+        android:label="@string/main_page_label"
+        tools:layout="@layout/search_fragment">
+        <action
+            android:id="@+id/action_main_page_to_movieDetailFragment"
+            app:destination="@id/movie_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favorites_page"
+        android:name="com.example.moviesearch.ui.favorites.FavoritesFragment"
+        android:label="@string/favorites"
+        tools:layout="@layout/favorites_fragment">
+        <action
+            android:id="@+id/action_favorites_page_to_movie_detail"
+            app:destination="@id/movie_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/movie_detail"
+        android:name="com.example.moviesearch.ui.moviedetail.MovieDetailFragment"
+        android:label=""
+        tools:layout="@layout/movie_detail_fragment">
+        <argument
+            android:name="imdbId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
